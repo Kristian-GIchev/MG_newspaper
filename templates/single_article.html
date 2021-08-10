@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block article_display %}
+	<div class="article">
+		<br>
+		<img src="{{ article.image.url }}" alt="">
+		<h1>{{ article.title }}</h1>
+		<h2 class="description">{{ article.description }}</h2>
+		<h2>Category: {{ article.category.capitalize }}</h2>
+		<h2>Date: {{ article.created_at }}</h2>
+
+		<button onclick="location.href = '{% url 'edit_article' article.id %}';">Edit</button>
+		<button onclick="location.href = '{% url 'delete_article' article.id %}';">Delete</button>
+	</div>
+{% endblock %}

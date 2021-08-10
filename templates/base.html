@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>{{ name }}</title>
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+
+<body>
+
+<nav>
+	<h1>MG Newspaper</h1>
+	<h2>{{ name.capitalize }}</h2>
+</nav>
+
+{% block article_display %}
+{% endblock %}
+
+{% block form %}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+
+<menu>
+	<h1 class="first-menu-line">PAGE TREE</h1>
+	<h2>--- HOME PAGE</h2>
+	<ul class="menu">
+		<li><h3><a href={% url 'home' %}>Home page</a> <br></h3></li>
+	</ul>
+	<h2>--- RUBRICS</h2>
+	<ul class="menu">
+		<li><h3><a href={% url 'news' %}>News</a> <br></h3></li>
+		<li><h3><a href={% url 'sports' %}>Sports</a> <br></h3></li>
+		<li><h3><a href={% url 'activities' %}>Activities</a> <br></h3></li>
+		<li><h3><a href={% url 'school_projects' %}>School Projects</a> <br></h3></li>
+		<li><h3><a href={% url 'international_internships' %}>International Internships</a> <br></h3></li>
+	</ul>
+	<h2>--- EDITOR'S SPACE</h2>
+	<ul class="menu">
+		<li><h3><a href={% url 'view_all_articles' %}>View All Articles</a> <br></h3></li>
+		<li><h3><a href={% url 'create_article' %}>Create New Article</a> <br></h3></li>
+	</ul>
+	<h2>--- CLUBS</h2>
+	<ul class="menu">
+		<li><h3><a href={% url 'web_dev' %}>Web_dev</a> <br></h3></li>
+		<li><h3><a href={% url 'literature' %}>Literature</a> <br></h3></li>
+		<li><h3><a href={% url 'cinema' %}>Cinema</a> <br></h3></li>
+	</ul>
+</menu>
+
+</body>
+</html>

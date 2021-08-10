@@ -1,0 +1,162 @@
+div.article {
+    display: block;
+    margin: auto auto 50px;
+    background-color: #ffee69;
+    border-radius: 20px;
+    overflow: auto;
+    height: 50%;
+    width: 95%;
+    padding: 15px;
+}
+
+div.article > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+div.article > h1{
+    text-align: center;
+    margin: 30px 0 40px;
+}
+
+h2.description {
+    display: block;
+    margin: auto;
+}
+
+div.article > h2{
+    padding: 20px;
+}
+
+body {
+    font-weight: bold;
+    color: black;
+    background: rgb(233,149,37);
+    background: linear-gradient(164deg, rgba(233,149,37,0.7707457983193278) 26%, rgba(25,236,233,0.32816876750700286) 79%);
+}
+
+nav > *{
+    text-align: center;
+    font-family: "Times New Roman";
+    font-size: 52px
+}
+
+.first-menu-line {
+    margin-top: 100px;
+}
+
+.container {
+    text-align: center;
+}
+
+form {
+    background-color: #ffee69;
+    border-radius: 45px;
+    padding: 30px;
+    margin: auto;
+    display: block;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+}
+
+form > p {
+    padding: 0px;
+}
+
+button {
+    background-color: #12289b;
+    color: #cdc6c6;
+    padding: 14px 20px;
+    border: black dot-dash;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    display: inline;
+    margin: 5px auto 0 25px;
+}
+
+
+body {
+    font-family: 'Book Antiqua', sans-serif;
+}
+
+
+menu{
+    display: block;
+}
+
+menu > * {
+    text-align: center;
+    list-style: none;
+}
+
+
+
+input[type=text],
+input[type=url],
+input[type=number],
+select,
+textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit],
+.button {
+    background-color: #0339fb;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    display: inline;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+input[type=submit]:hover,
+.button:hover {
+    background-color: #d6b9b9;
+    text-decoration: underline;
+}
+
+
+hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.right {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    background: #00334e;
+    width: 100%;
+    padding: 15px 0;
+}
+
+footer div {
+    text-align: center;
+    color: white;
+}
