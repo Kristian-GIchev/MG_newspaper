@@ -43,8 +43,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'cloudinary',
+
     'MG_vestnik',
-    'MG_vestnik.myapp',
+    'MG_vestnik.mg_auth',
+    'MG_vestnik.profiles',
+    'MG_vestnik.article_management',
+    'MG_vestnik.public',
+
 ]
 
 MIDDLEWARE = [
