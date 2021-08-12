@@ -154,6 +154,6 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = reverse_lazy('login')
+LOGIN_URL = reverse_lazy('sign-in')
 
-# AUTH_USER_MODEL = 'mg_auth.MgUser'
+AUTH_USER_MODEL = 'mg_auth.MgUser'

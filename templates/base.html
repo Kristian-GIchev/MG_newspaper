@@ -33,6 +33,15 @@
 			<a href={% url 'create_article' %}>Create New Article</a>
 	    </div>
 	</div>
+	<div class="login-nav">
+		{% if request.user.is_authenticated %}
+			<div class="signed-in-as">Signed in as <a href="{% url 'profile' %}">{{ request.user }}</a></div>
+			<div class="sign-out"><a href="{% url 'sign-out' %}">Sign Out</a></div>
+		{% else %}
+			<div class="sign-in"><a href="{% url 'sign-in' %}">Sign in</a></div>
+			<div><a href="{% url 'register' %}">Register</a></div>
+		{% endif %}
+	</div>
 </nav>
 
 <h2 class="page-name">{{ name.capitalize }}</h2>

@@ -2,11 +2,11 @@ from django.conf.urls.static import static
 from django.urls import path
 
 from newspaper import settings
-from newspaper.mg_auth.views import u_logout, u_register, u_login
+from newspaper.mg_auth.views import sign_out, u_register, sign_in
 
 
 urlpatterns = [
-    path('login/', u_login, name='login'),
+    path('sign-in/', sign_in, name='sign-in'),
     path('register/', u_register, name='register'),
-    path('logout/', u_logout, name='logout'),
+    path('sign-out/', sign_out, name='sign-out'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

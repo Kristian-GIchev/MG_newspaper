@@ -1,6 +1,36 @@
 from django import forms
+from django.contrib.auth import authenticate, get_user_model
+from django.contrib.auth.forms import UserCreationForm
+from django.core.exceptions import ValidationError
 
-class LoginForm(forms.Form):
-    username = forms.CharField(max_length=20)
-    password = forms.CharField(max_length=20, widget=forms.PasswordInput())
+
+UserModel = get_user_model()
+
+
+class RegisterForm(UserCreationForm):
+    class Meta:
+        model = UserModel
+        fields = ('email',)
+
+
+class SignInForm(forms.Form):
+    user = None
+
+    email = forms.EmailField()
+    password = forms.CharField(
+        max_length=20,
+        widget=forms.PasswordInput(),
+    )
+
+    def clean_password(self):
+        self.user = authenticate(
+            email=self.cleaned_data['email'],
+            password=self.cleaned_data['password'],
+        )
+
+        if not self.user:
+            raise ValidationError('Email and/or password incorrect')
+
+    def save(self):
+        return self.user
 

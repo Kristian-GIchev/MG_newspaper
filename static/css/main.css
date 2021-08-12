@@ -23,10 +23,10 @@ nav > *{
 }
 
 span.logo{
-    color: rgb(133, 105, 238);
+    color: #8343ff;
     float: left;
     font-size: 42px;
-    margin: 10px 30px 0 10px;
+    margin: 10px 30px 0 30px;
 }
 
 span.logo > a{
@@ -53,33 +53,36 @@ span.logo > a:visited{
 }
 
 .dropdown .dropbtn {
-    font-size: 20px;
+    font-size: 24px;
     border: none;
     outline: none;
     color: white;
-    margin: 0;
-    padding: 24px 24px 21px 24px;
+    padding: 24px 0 18px 0;
+    margin: 0 30px 0 30px;
     background-color: inherit;
     font-family: inherit;
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
+  color: #8343ff;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
+    min-width: 60px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    overflow: hidden;
+    margin-top: -2px;
     z-index: 1;
 }
 
 .dropdown-content a {
     float: none;
     color: black;
-    padding: 12px 16px;
+    padding: 12px 20px ;
+    margin: 0 0 0 12px;
     text-decoration: none;
     display: block;
     text-align: left;
@@ -92,6 +95,37 @@ span.logo > a:visited{
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+/*NAVBAR LOGIN*/
+div.login-nav {
+    display: inline;
+    float: right;
+    margin-right: 10px;
+    font-family: 'Merriweather', serif;
+}
+
+div.login-nav > *{
+    font-size: 24px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 24px 0 18px 0;
+    margin: 0 20px 0 0;
+    background-color: inherit;
+    font-family: inherit;
+    display: inline;
+    float: right;
+    text-align: center;
+}
+
+div.login-nav > * > a{
+    font-size: inherit;
+    color: white;
+    background-color: inherit;
+    font-family: inherit;
+    display: inline;
+}
+
 
 /*PAGE-NAME*/
 h2.page-name{

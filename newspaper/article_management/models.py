@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
+UserModel = get_user_model()
 
 
 class Article(models.Model):
@@ -8,7 +9,7 @@ class Article(models.Model):
     description = models.TextField(max_length=10000)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    user = models.ForeignKey(get_user_model(), on_delete=models.DO_NOTHING, default=None, null=True)
+    user = models.ForeignKey(UserModel, on_delete=models.DO_NOTHING, default=None, null=True)
 
     class ArticleTypes(models.TextChoices):
         sports = 'sports'
