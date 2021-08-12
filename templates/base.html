@@ -14,9 +14,29 @@
 <body>
 
 <nav>
-	<h1>MG Newspaper</h1>
-	<h2>{{ name.capitalize }}</h2>
+	<span class="logo"><a href="{% url 'home' %}">MG Newspaper</a></span>
+	<div class="dropdown">
+	    <button class="dropbtn">Articles</button>
+		<div class="dropdown-content">
+			<a href={% url 'news' %}>News</a>
+			<a href={% url 'sports' %}>Sports</a>
+			<a href={% url 'activities' %}>Activities</a>
+			<a href={% url 'projects' %}>Projects</a>
+			<a href={% url 'internships' %}>Internships</a>
+		</div>
+	</div>
+
+	<div class="dropdown">
+		<button class="dropbtn">Editor menu</button>
+		<div class="dropdown-content">
+			<a href={% url 'view_my_articles' %}>View My Articles</a>
+			<a href={% url 'create_article' %}>Create New Article</a>
+	    </div>
+	</div>
 </nav>
+
+<h2 class="page-name">{{ name.capitalize }}</h2>
+
 
 {% block article_display %}
 {% endblock %}
@@ -27,28 +47,6 @@
 {% block content %}
 {% endblock %}
 
-<!--
-<menu>
-	<h1 class="first-menu-line">PAGE TREE</h1>
-	<h2>--- HOME PAGE</h2>
-	<ul class="menu">
-		<li><h3><a href={% url 'home' %}>Home page</a> <br></h3></li>
-	</ul>
-	<h2>--- RUBRICS</h2>
-	<ul class="menu">
-		<li><h3><a href={% url 'news' %}>News</a> <br></h3></li>
-		<li><h3><a href={% url 'sports' %}>Sports</a> <br></h3></li>
-		<li><h3><a href={% url 'activities' %}>Activities</a> <br></h3></li>
-		<li><h3><a href={% url 'school_projects' %}>School Projects</a> <br></h3></li>
-		<li><h3><a href={% url 'international_internships' %}>International Internships</a> <br></h3></li>
-	</ul>
-	<h2>--- EDITOR'S SPACE</h2>
-	<ul class="menu">
-		<li><h3><a href={% url 'view_my_articles' %}>View All Articles</a> <br></h3></li>
-		<li><h3><a href={% url 'create_article' %}>Create New Article</a> <br></h3></li>
-	</ul>
-</menu>
--->
 
 </body>
 </html>

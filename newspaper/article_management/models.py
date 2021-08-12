@@ -14,11 +14,11 @@ class Article(models.Model):
         sports = 'sports'
         news = 'news'
         activities = 'activities'
-        school_projects = 'school_projects'
-        international_internships = 'international_internships'
+        projects = 'projects'
+        internships = 'internships'
 
     category = models.CharField(
-        max_length=25,
+        max_length=15,
         choices=ArticleTypes.choices,
         default=ArticleTypes.news,
         )

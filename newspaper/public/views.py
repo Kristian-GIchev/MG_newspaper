@@ -45,19 +45,19 @@ def activities(request):
     return render(request, 'index.html', context)
 
 
-def school_projects(request):
-    articles = Article.objects.filter(category='school_projects').order_by('-created_at')
+def projects(request):
+    articles = Article.objects.filter(category='projects').order_by('-created_at')
     context = {
-        'name': 'School Projects',
+        'name': 'Projects',
         'articles': articles
     }
     return render(request, 'index.html', context)
 
 
-def international_internships(request):
-    articles = Article.objects.filter(category='international_internships').order_by('-created_at')
+def internships(request):
+    articles = Article.objects.filter(category='internships').order_by('-created_at')
     context = {
-        'name': 'International Internships',
+        'name': 'Internships',
         'articles': articles
     }
     return render(request, 'index.html', context)
