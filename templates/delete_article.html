@@ -4,6 +4,6 @@
 	<form action="{% url 'delete_article' article.id%}" method="post" enctype="multipart/form-data">
 		{% csrf_token %}
 		{{ form.as_p }}
-		<button type="submit">Delete</button>
+		<button class="button red" type="submit">Delete</button>
 	</form>
 {% endblock %}

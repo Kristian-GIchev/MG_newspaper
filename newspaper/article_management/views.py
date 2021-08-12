@@ -8,7 +8,7 @@ from newspaper.settings import LOGIN_URL
 @login_required(login_url=LOGIN_URL)
 def view_my_articles(request):
     user = request.user
-    articles = user.article_set
+    articles = Article.objects.filter(user=user)
     context = {
         'articles': articles,
         'name': 'View My Articles',

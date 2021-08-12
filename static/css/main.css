@@ -102,21 +102,58 @@ h2.page-name{
 
 /*FORM*/
 form {
-    background-color: #ffee69;
+    background-color: rgba(0, 0, 0, 0.28);
     border-radius: 45px;
     padding: 30px;
     margin: auto;
     display: block;
-    width: 60%;
+    width: 50%;
     justify-content: center;
     align-items: center;
 }
 
+form > p {
+    padding: 10px;
+    font-size: 22px;
+}
+
+
+/*ARTICLE*/
+div.article {
+    display: block;
+    margin: auto auto 50px;
+    background-color: rgba(0, 0, 0, 0.28);
+    border-radius: 20px;
+    overflow: auto;
+    height: 50%;
+    width: 80%;
+    padding: 15px;
+}
+
+div.article > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+div.article > h1{
+    text-align: center;
+    margin: 30px 0 40px;
+}
+
+h2.description {
+    display: block;
+    margin: auto;
+}
+
+div.article > h2 {
+    padding: 20px;
+}
 
 
 /*BUTTON, :HOVER*/
-button.blue {
-    background-color: #12289b;
+.button{
     color: #cdc6c6;
     padding: 14px 20px;
     border: black dot-dash;
@@ -130,9 +167,19 @@ button.blue {
     margin: 5px auto 0 25px;
 }
 
-input[type=submit]:hover,
+
+.blue {
+    background-color: #12289b;
+}
+
+.red {
+    background-color: #a00c09;
+}
+
 .button:hover {
-    background-color: #d6b9b9;
+    background-color: rgba(202,17,14,0);
+    color: black;
+    font-weight: bold;
     text-decoration: underline;
 }
 
