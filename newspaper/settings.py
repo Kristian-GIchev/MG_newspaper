@@ -140,6 +140,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     BASE_DIR / 'static',
     BASE_DIR / 'static/css',
+    BASE_DIR / 'static/background',
 
 )
 
@@ -154,3 +155,5 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = reverse_lazy('login')
+
+# AUTH_USER_MODEL = 'mg_auth.MgUser'

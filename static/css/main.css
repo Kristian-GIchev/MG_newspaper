@@ -31,15 +31,15 @@ div.article > h2{
 }
 
 body {
+    font-family: 'Book Antiqua', sans-serif;
     font-weight: bold;
     color: black;
-    background: rgb(233,149,37);
-    background: linear-gradient(164deg, rgba(233,149,37,0.7707457983193278) 26%, rgba(25,236,233,0.32816876750700286) 79%);
+    background-image: url("/static/background/pattern.jpg");
 }
 
 nav > *{
     text-align: center;
-    font-family: "Times New Roman";
+    font-family: 'Merriweather', serif;;
     font-size: 52px
 }
 
@@ -81,10 +81,6 @@ button {
     margin: 5px auto 0 25px;
 }
 
-
-body {
-    font-family: 'Book Antiqua', sans-serif;
-}
 
 
 menu{

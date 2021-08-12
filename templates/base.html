@@ -6,6 +6,9 @@
 	<meta charset="UTF-8">
 	<title>{{ name }}</title>
 	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -24,7 +27,7 @@
 {% block content %}
 {% endblock %}
 
-
+<!--
 <menu>
 	<h1 class="first-menu-line">PAGE TREE</h1>
 	<h2>--- HOME PAGE</h2>
@@ -45,6 +48,7 @@
 		<li><h3><a href={% url 'create_article' %}>Create New Article</a> <br></h3></li>
 	</ul>
 </menu>
+-->
 
 </body>
 </html>
