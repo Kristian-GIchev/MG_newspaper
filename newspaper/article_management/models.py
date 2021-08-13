@@ -1,3 +1,4 @@
+from cloudinary.models import CloudinaryField
 from django.contrib.auth import get_user_model
 from django.db import models
 UserModel = get_user_model()
@@ -5,7 +6,7 @@ UserModel = get_user_model()
 
 class Article(models.Model):
     title = models.CharField(max_length=30)
-    image = models.ImageField(upload_to='article_img', blank=True)
+    image = CloudinaryField("Picture", blank=True, null=True)
     description = models.TextField(max_length=10000)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

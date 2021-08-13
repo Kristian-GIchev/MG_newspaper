@@ -18,16 +18,19 @@ def view_my_articles(request):
 
 @login_required(login_url=LOGIN_URL)
 def create_article(request):
-    form = CreateArticleForm(request.POST, request.FILES)
-    if form.is_valid():
-        article = Article.objects.create(title=form.cleaned_data.get('title'),
-                                         description=form.cleaned_data.get('description'),
-                                         image=form.cleaned_data.get('image'),
-                                         category=form.cleaned_data.get('category'),
-                                         user=request.user,
-                                         )
-        article.save()
-        return redirect('home')
+    if request.method == "POST":
+        form = CreateArticleForm(request.POST, request.FILES)
+        if form.is_valid():
+            article = Article.objects.create(title=form.cleaned_data.get('title'),
+                                             description=form.cleaned_data.get('description'),
+                                             image=form.cleaned_data.get('image'),
+                                             category=form.cleaned_data.get('category'),
+                                             user=request.user,
+                                             )
+            article.save()
+            return redirect('home')
+    else:
+        form = CreateArticleForm()
     context = {
         'form': form,
         'name': 'Create New Article',

@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<h1>Are you sure?</h1>
+	<h1 style="text-align: center" >Are you sure?</h1>
 	<form action="{% url 'sign-out' %}" method="post">
 		{% csrf_token %}
-		<button class="button red" type="submit">Sign out</button>
+		<button class="central button red" type="submit">Sign out</button>
 	</form>
 {% endblock %}

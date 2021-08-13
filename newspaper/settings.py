@@ -14,6 +14,9 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 from django.urls import reverse_lazy
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -157,3 +160,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = reverse_lazy('sign-in')
 
 AUTH_USER_MODEL = 'mg_auth.MgUser'
+
+# CLOUDINARY CONFIG
+cloudinary.config(
+  cloud_name="mg-newspaper",
+  api_key="927121549629993",
+  api_secret="8rcvtw8-HG_y4qmiOO5tYoy7vQE",
+)
+

@@ -193,8 +193,6 @@ div.article > h2 {
     border: black dot-dash;
     border-radius: 4px;
     cursor: pointer;
-    width: 100px;
-    height: 50px;
     font-family: 'Lato', sans-serif;
     font-size: 16px;
     display: inline;
@@ -208,6 +206,11 @@ div.article > h2 {
 
 .red {
     background-color: #a00c09;
+}
+
+.central{
+    display: block;
+    margin: auto;
 }
 
 .button:hover {

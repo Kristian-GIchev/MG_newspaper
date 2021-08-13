@@ -3,8 +3,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('newspaper.article_management.urls')),
+    path('management/', include('newspaper.article_management.urls')),
     path('', include('newspaper.public.urls')),
-    path('', include('newspaper.profiles.urls')),
-    path('', include('newspaper.mg_auth.urls')),
+    path('profiles/', include('newspaper.profiles.urls')),
+    path('auth/', include('newspaper.mg_auth.urls')),
 ]
