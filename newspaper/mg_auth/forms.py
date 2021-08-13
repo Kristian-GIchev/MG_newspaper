@@ -18,14 +18,17 @@ class SignInForm(forms.Form):
 
     email = forms.EmailField()
     password = forms.CharField(
-        max_length=20,
         widget=forms.PasswordInput(),
     )
 
     def clean_password(self):
+        email = self.cleaned_data['email'],
+        password = self.cleaned_data['password'],
+        email = email[0]
+        password = password[0]
         self.user = authenticate(
-            email=self.cleaned_data['email'],
-            password=self.cleaned_data['password'],
+            email=email,
+            password=password,
         )
 
         if not self.user:

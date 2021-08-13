@@ -25,10 +25,9 @@ def sign_in(request):
     if request.method == "POST":
         form = SignInForm(request.POST)
         if form.is_valid():
-            user = authenticate(request, username=form.cleaned_data['username'], password=form.cleaned_data['password'])
-            if user:
-                login(request, user)
-                return redirect('home')
+            user = form.save()
+            login(request, user)
+            return redirect('profile')
     else:
         form = SignInForm()
     context = {
