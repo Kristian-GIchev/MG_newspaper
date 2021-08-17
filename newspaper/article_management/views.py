@@ -1,5 +1,8 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
+
 from newspaper.article_management.forms import CreateArticleForm, EditArticleForm, DeleteArticleForm
 from newspaper.public.models import Article
 from newspaper.settings import LOGIN_URL
@@ -75,8 +78,26 @@ def delete_article(request, pk):
 
 def view_article(request, pk):
     article = Article.objects.get(pk=pk)
+    total_likes = article.total_likes()
+    is_liked = False
+    if article.likes.filter(id=request.user.id).exists():
+        is_liked = True
     context = {
         'name': 'View Article',
         'article': article,
+        'total_likes': total_likes,
+        'is_liked': is_liked
     }
     return render(request, 'article_management/../../templates/public/single_article.html', context)
+
+
+def like_article(request, pk):
+
+    article = get_object_or_404(Article, id=request.POST.get('article_id'))
+    if article.likes.filter(id=request.user.id).exists():
+        article.likes.remove(request.user)
+    else:
+        article.likes.add(request.user)
+
+    return HttpResponseRedirect(reverse('view_article', args=[str(pk)]))
+

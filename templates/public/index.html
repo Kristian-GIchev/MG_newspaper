@@ -5,11 +5,9 @@
 		<div class="article">
 			<br>
 			<img src="{{ article.image.url }}" alt="">
-			<h1>{{ article.title }}</h1>
+			<h1><a href="{% url 'view_article' article.id %}">{{ article.title }}</a></h1>
 			<h2 class="description">{{ article.description }}</h2>
-			<h2>Category: {{ article.category.capitalize }}</h2>
 			<h2>Date: {{ article.created_at }}</h2>
-			<h2>Created by: {{ article.user }}</h2>
 		</div>
 	{% endfor %}
 {% endblock %}

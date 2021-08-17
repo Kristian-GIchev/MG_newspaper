@@ -4,6 +4,8 @@ from newspaper.public.models import Article
 
 def home(request):
     articles = Article.objects.order_by('-created_at')
+    for article in articles:
+        article.shorten_description()
     context = {
         'name': 'Home',
         'articles': articles
@@ -12,6 +14,7 @@ def home(request):
 
 
 def about_us(request):
+
     context = {
         'name': 'About Us'
     }
@@ -20,6 +23,8 @@ def about_us(request):
 
 def news(request):
     articles = Article.objects.filter(category='news').order_by('-created_at')
+    for article in articles:
+        article.shorten_description()
     context = {
         'name': 'News',
         'articles': articles
@@ -29,6 +34,8 @@ def news(request):
 
 def sports(request):
     articles = Article.objects.filter(category='sports').order_by('-created_at')
+    for article in articles:
+        article.shorten_description()
     context = {
         'name': 'Sports',
         'articles': articles
@@ -38,6 +45,8 @@ def sports(request):
 
 def activities(request):
     articles = Article.objects.filter(category='activities').order_by('-created_at')
+    for article in articles:
+        article.shorten_description()
     context = {
         'name': 'Activities',
         'articles': articles
@@ -47,6 +56,8 @@ def activities(request):
 
 def projects(request):
     articles = Article.objects.filter(category='projects').order_by('-created_at')
+    for article in articles:
+        article.shorten_description()
     context = {
         'name': 'Projects',
         'articles': articles
@@ -56,6 +67,8 @@ def projects(request):
 
 def internships(request):
     articles = Article.objects.filter(category='internships').order_by('-created_at')
+    for article in articles:
+        article.shorten_description()
     context = {
         'name': 'Internships',
         'articles': articles
