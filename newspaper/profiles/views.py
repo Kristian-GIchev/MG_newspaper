@@ -20,4 +20,4 @@ def profile(request):
         'profile': user_profile,
         'name': 'Profile Page',
     }
-    return render(request, 'profile.html', context)
+    return render(request, 'auth/profile.html', context)

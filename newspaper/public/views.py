@@ -8,14 +8,14 @@ def home(request):
         'name': 'Home',
         'articles': articles
     }
-    return render(request, 'index.html', context)
+    return render(request, 'public/index.html', context)
 
 
 def about_us(request):
     context = {
         'name': 'About Us'
     }
-    return render(request, 'index.html', context)
+    return render(request, 'public/index.html', context)
 
 
 def news(request):
@@ -24,7 +24,7 @@ def news(request):
         'name': 'News',
         'articles': articles
     }
-    return render(request, 'index.html', context)
+    return render(request, 'public/index.html', context)
 
 
 def sports(request):
@@ -33,7 +33,7 @@ def sports(request):
         'name': 'Sports',
         'articles': articles
     }
-    return render(request, 'index.html', context)
+    return render(request, 'public/index.html', context)
 
 
 def activities(request):
@@ -42,7 +42,7 @@ def activities(request):
         'name': 'Activities',
         'articles': articles
     }
-    return render(request, 'index.html', context)
+    return render(request, 'public/index.html', context)
 
 
 def projects(request):
@@ -51,7 +51,7 @@ def projects(request):
         'name': 'Projects',
         'articles': articles
     }
-    return render(request, 'index.html', context)
+    return render(request, 'public/index.html', context)
 
 
 def internships(request):
@@ -60,7 +60,7 @@ def internships(request):
         'name': 'Internships',
         'articles': articles
     }
-    return render(request, 'index.html', context)
+    return render(request, 'public/index.html', context)
 
 
 # def web_dev(request):

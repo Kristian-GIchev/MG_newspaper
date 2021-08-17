@@ -18,7 +18,7 @@ def u_register(request):
         'form': form,
         'name': 'Registration page'
     }
-    return render(request, 'register.html', context)
+    return render(request, 'auth/register.html', context)
 
 
 def sign_in(request):
@@ -34,7 +34,7 @@ def sign_in(request):
         'form': form,
         'name': 'Sign in page',
     }
-    return render(request, 'sign-in.html', context)
+    return render(request, 'auth/sign-in.html', context)
 
 
 @login_required(login_url=LOGIN_URL)
@@ -43,4 +43,4 @@ def sign_out(request):
         logout(request)
         return redirect('home')
     else:
-        return render(request, 'sign-out.html', context={'name': 'Sign out page'})
+        return render(request, 'auth/sign-out.html', context={'name': 'Sign out page'})

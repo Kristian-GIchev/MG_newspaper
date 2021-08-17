@@ -13,7 +13,7 @@ def view_my_articles(request):
         'articles': articles,
         'name': 'View My Articles',
     }
-    return render(request, 'view_my_articles.html', context)
+    return render(request, 'article_management/view_my_articles.html', context)
 
 
 @login_required(login_url=LOGIN_URL)
@@ -35,7 +35,7 @@ def create_article(request):
         'form': form,
         'name': 'Create New Article',
     }
-    return render(request, 'create_article.html', context)
+    return render(request, 'article_management/create_article.html', context)
 
 
 @login_required(login_url=LOGIN_URL)
@@ -53,7 +53,7 @@ def edit_article(request, pk):
         'article': article,
         'name': 'Edit Article',
     }
-    return render(request, 'edit_article.html', context)
+    return render(request, 'article_management/edit_article.html', context)
 
 
 @login_required(login_url=LOGIN_URL)
@@ -70,7 +70,7 @@ def delete_article(request, pk):
         'name': 'Edit Article',
         'article': article,
     }
-    return render(request, 'delete_article.html', context)
+    return render(request, 'article_management/delete_article.html', context)
 
 
 def view_article(request, pk):
@@ -79,4 +79,4 @@ def view_article(request, pk):
         'name': 'View Article',
         'article': article,
     }
-    return render(request, 'single_article.html', context)
+    return render(request, 'article_management/../../templates/public/single_article.html', context)

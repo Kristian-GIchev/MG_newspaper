@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'public/base.html' %}
 
 {% block article_display %}
 	{% for article in articles %}
@@ -9,6 +9,7 @@
 			<h2 class="description">{{ article.description }}</h2>
 			<h2>Category: {{ article.category.capitalize }}</h2>
 			<h2>Date: {{ article.created_at }}</h2>
+			<h2>Created by: {{ article.user }}</h2>
 		</div>
 	{% endfor %}
 {% endblock %}
