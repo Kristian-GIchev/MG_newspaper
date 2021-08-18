@@ -4,8 +4,6 @@ from newspaper.public.models import Article
 
 def home(request):
     articles = Article.objects.order_by('-created_at')
-    for article in articles:
-        article.shorten_description()
     context = {
         'name': 'Home',
         'articles': articles
@@ -23,8 +21,6 @@ def about_us(request):
 
 def news(request):
     articles = Article.objects.filter(category='news').order_by('-created_at')
-    for article in articles:
-        article.shorten_description()
     context = {
         'name': 'News',
         'articles': articles
@@ -34,8 +30,6 @@ def news(request):
 
 def sports(request):
     articles = Article.objects.filter(category='sports').order_by('-created_at')
-    for article in articles:
-        article.shorten_description()
     context = {
         'name': 'Sports',
         'articles': articles
@@ -45,8 +39,6 @@ def sports(request):
 
 def activities(request):
     articles = Article.objects.filter(category='activities').order_by('-created_at')
-    for article in articles:
-        article.shorten_description()
     context = {
         'name': 'Activities',
         'articles': articles
@@ -56,8 +48,7 @@ def activities(request):
 
 def projects(request):
     articles = Article.objects.filter(category='projects').order_by('-created_at')
-    for article in articles:
-        article.shorten_description()
+
     context = {
         'name': 'Projects',
         'articles': articles
@@ -67,13 +58,25 @@ def projects(request):
 
 def internships(request):
     articles = Article.objects.filter(category='internships').order_by('-created_at')
-    for article in articles:
-        article.shorten_description()
     context = {
         'name': 'Internships',
         'articles': articles
     }
     return render(request, 'public/index.html', context)
+
+
+def view_article(request, pk):
+    article = Article.objects.get(pk=pk)
+    is_liked = False
+    if article.likes.filter(id=request.user.id).exists():
+        is_liked = True
+    context = {
+        'name': 'View Article',
+        'article': article,
+        'is_liked': is_liked,
+    }
+    return render(request, 'public/single_article.html', context)
+
 
 
 # def web_dev(request):

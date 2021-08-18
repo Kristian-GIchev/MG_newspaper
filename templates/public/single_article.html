@@ -2,24 +2,26 @@
 
 {% block article_display %}
 	<div class="article">
-		<br>
 		<img src="{{ article.image.url }}" alt="">
 		<h1>{{ article.title }}</h1>
 		<h2 class="description">{{ article.description }}</h2>
-		<h2>{{ total_likes }} likes</h2>
-		<h2>Category: {{ article.category.capitalize }}</h2>
-		<h2>Date: {{ article.created_at }}</h2>
-		<form action="{% url 'like_article' article.id %}" method="post">
+		<h2 style="display: inline">{{ article.total_likes }} likes</h2>
+
+		<form class="like-form" action="{% url 'like_article' article.id %}" method="post">
 			{% csrf_token %}
 			{% if not is_liked %}
-				<button name='article_id' type="submit" value="{{ article.id }}" class="central button blue">Like</button>
+				<button name='article_id' type="submit" value="{{ article.id }}" class="button">Like</button>
 			{% else %}
-				<button name='article_id' type="submit" value="{{ article.id }}" class="central button red">Dislike</button>
+				<button name='article_id' type="submit" value="{{ article.id }}" class="button">Unlike</button>
 			{% endif %}
 		</form>
 
-		<button onclick="location.href = '{% url 'edit_article' article.id %}';">Edit</button>
-		<button onclick="location.href = '{% url 'delete_article' article.id %}';">Delete</button>
+		<h2>Category: {{ article.category.capitalize }}</h2>
+		<h2>Date: {{ article.created_at }}</h2>
+
+
+		<button class="button" onclick="location.href = '{% url 'edit_article' article.id %}';">Edit</button>
+		<button class="button" onclick="location.href = '{% url 'delete_article' article.id %}';">Delete</button>
 
 	</div>
 {% endblock %}

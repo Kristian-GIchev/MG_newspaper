@@ -10,8 +10,8 @@ class Article(models.Model):
     description = models.TextField(max_length=10000)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    user = models.ForeignKey(UserModel, on_delete=models.DO_NOTHING, default=None, null=True)
-    likes = models.ManyToManyField(UserModel, related_name='article_post')
+    user = models.ForeignKey(UserModel, on_delete=models.CASCADE, default=None, null=True)
+    likes = models.ManyToManyField(UserModel, related_name='article_likes')
 
     class ArticleTypes(models.TextChoices):
         sports = 'sports'
@@ -26,10 +26,16 @@ class Article(models.Model):
         default=ArticleTypes.news,
         )
 
+    @property
     def total_likes(self):
         return self.likes.count()
 
-    def shorten_description(self):
+    @property
+    def total_comments(self):
+        return self.comment_set.count()
+
+    @property
+    def short_description(self):
         max_words = 10
         split = self.description.split(' ', max_words)
         split.pop(max_words)
@@ -38,4 +44,4 @@ class Article(models.Model):
             short_description += word + " "
         short_description = short_description[:-1] + "..."
         self.description = short_description
-        return 'success'
+        return short_description

@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'newspaper.mg_auth',
     'newspaper.profiles',
     'newspaper.article_management',
+    'newspaper.comments',
     'newspaper.public',
 
 ]

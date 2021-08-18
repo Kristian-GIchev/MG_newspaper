@@ -76,21 +76,7 @@ def delete_article(request, pk):
     return render(request, 'article_management/delete_article.html', context)
 
 
-def view_article(request, pk):
-    article = Article.objects.get(pk=pk)
-    total_likes = article.total_likes()
-    is_liked = False
-    if article.likes.filter(id=request.user.id).exists():
-        is_liked = True
-    context = {
-        'name': 'View Article',
-        'article': article,
-        'total_likes': total_likes,
-        'is_liked': is_liked
-    }
-    return render(request, 'article_management/../../templates/public/single_article.html', context)
-
-
+@login_required(login_url=LOGIN_URL)
 def like_article(request, pk):
 
     article = get_object_or_404(Article, id=request.POST.get('article_id'))

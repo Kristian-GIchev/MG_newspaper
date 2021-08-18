@@ -2,7 +2,7 @@
 
 {% block content %}
 	<h1 style="text-align: center" >Are you sure?</h1>
-	<form action="{% url 'sign-out' %}" method="post">
+	<form class="form" action="{% url 'sign-out' %}" method="post">
 		{% csrf_token %}
 		<button class="central button red" type="submit">Sign out</button>
 	</form>

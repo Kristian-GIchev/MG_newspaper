@@ -6,7 +6,7 @@
 			<br>
 			<img src="{{ article.image.url }}" alt="">
 			<h1><a href="{% url 'view_article' article.id %}">{{ article.title }}</a></h1>
-			<h2 class="description">{{ article.description }}</h2>
+			<h2 class="description">{{ article.short_description }}</h2>
 			<h2>Date: {{ article.created_at }}</h2>
 		</div>
 	{% endfor %}

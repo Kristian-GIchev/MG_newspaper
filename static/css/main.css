@@ -135,7 +135,7 @@ h2.page-name{
 
 
 /*FORM*/
-form {
+.form {
     background-color: rgba(0, 0, 0, 0.28);
     border-radius: 45px;
     padding: 30px;
@@ -146,11 +146,16 @@ form {
     align-items: center;
 }
 
-form > p {
+.form > p {
     padding: 10px;
     font-size: 22px;
 }
 
+
+.like-form{
+    display: inline;
+    margin-left: 60px;
+}
 
 /*ARTICLE*/
 div.article {
@@ -188,7 +193,8 @@ div.article > h2 {
 
 /*BUTTON, :HOVER*/
 .button{
-    color: #cdc6c6;
+    color: #000000;
+    background-color: rgb(152, 255, 170);
     padding: 14px 20px;
     border: black dot-dash;
     border-radius: 4px;
