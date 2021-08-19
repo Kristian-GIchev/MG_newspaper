@@ -2,7 +2,8 @@ from django.conf.urls.static import static
 from django.urls import path
 
 from newspaper import settings
-from newspaper.public.views import home, about_us, news, sports, activities, projects, internships
+from newspaper.public.views import home, about_us, news, sports, activities, projects, internships, view_article, \
+    article_menu
 
 urlpatterns = [
     path('', home, name='home'),
@@ -12,6 +13,10 @@ urlpatterns = [
     path('activities/', activities, name='activities'),
     path('projects/', projects, name='projects'),
     path('internships/', internships, name='internships'),
+    path('view-article/<int:pk>', view_article, name='view_article'),
+    path('article-menu/', article_menu, name='article_menu'),
+
+    # path('view-comment/<int:pk>', view_comment, name='view_comment'),
     # path('web-dev/', web_dev, name='web_dev'),
     # path('literature/', literature, name='literature'),
     # path('cinema/', cinema, name='cinema'),

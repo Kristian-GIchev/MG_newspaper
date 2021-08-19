@@ -1,0 +1,25 @@
+{% extends 'public/base.html' %}
+
+{% block article_display %}
+	<div class="article">
+		<h1><a href="{% url 'news' %}" class="hidden-link">NEWS</a></h1>
+		<h1>{{ new_count }} articles</h1>
+	</div>
+	<div class="article">
+		<h1><a href="{% url 'sports' %}" class="hidden-link">SPORTS</a></h1>
+		<h1>{{ sport_count }} articles</h1>
+	</div>
+	<div class="article">
+		<h1><a href="{% url 'activities' %}" class="hidden-link">ACTIVITIES</a></h1>
+		<h1>{{ activity_count }} articles</h1>
+	</div>
+	<div class="article">
+		<h1><a href="{% url 'internships' %}" class="hidden-link">INTERNSHIPS</a></h1>
+		<h1>{{ internship_count }} articles</h1>
+	</div>
+	<div class="article">
+		<h1><a href="{% url 'projects' %}" class="hidden-link">PROJECTS</a></h1>
+		<h1>{{ project_count }} articles</h1>
+	</div>
+
+{% endblock %}

@@ -1,7 +1,7 @@
 {% extends 'public/base.html' %}
 
 {% block form %}
-	<form action="{% url 'profile' %}" method="post" enctype="multipart/form-data">
+	<form class="form" action="{% url 'profile' %}" method="post" enctype="multipart/form-data">
 		{% csrf_token %}
 		{{ form.as_p }}
 		<button class="central button blue" type="submit">Save</button>

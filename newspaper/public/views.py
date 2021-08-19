@@ -5,13 +5,14 @@ from newspaper.public.models import Article
 def home(request):
     articles = Article.objects.order_by('-created_at')
     context = {
-        'name': 'Home',
+        'name': 'Newest Articles',
         'articles': articles
     }
     return render(request, 'public/index.html', context)
 
 
 def about_us(request):
+
     context = {
         'name': 'About Us'
     }
@@ -47,6 +48,7 @@ def activities(request):
 
 def projects(request):
     articles = Article.objects.filter(category='projects').order_by('-created_at')
+
     context = {
         'name': 'Projects',
         'articles': articles
@@ -61,6 +63,48 @@ def internships(request):
         'articles': articles
     }
     return render(request, 'public/index.html', context)
+
+
+def view_article(request, pk):
+    article = Article.objects.get(pk=pk)
+    is_liked = False
+    if article.likes.filter(id=request.user.id).exists():
+        is_liked = True
+    context = {
+        'name': 'View Article',
+        'article': article,
+        'is_liked': is_liked,
+    }
+    return render(request, 'public/view_article.html', context)
+
+
+def article_menu(request):
+    new_count = len(Article.objects.filter(category='news'))
+    sport_count = len(Article.objects.filter(category='sports'))
+    activity_count = len(Article.objects.filter(category='activities'))
+    internship_count = len(Article.objects.filter(category='internships'))
+    project_count = len(Article.objects.filter(category='projects'))
+    context = {
+        'new_count': new_count,
+        'sport_count': sport_count,
+        'activity_count': activity_count,
+        'internship_count': internship_count,
+        'project_count': project_count,
+    }
+    return render(request, 'public/article_menu', context)
+
+
+# def view_comment(request, pk):
+#     comment = Comment.objects.get(pk=pk)
+#     is_liked = False
+#     if comment.likes.filter(id=request.user.id).exists():
+#         is_liked = True
+#     context = {
+#         'name': 'View Comment',
+#         'comment': comment,
+#         'is_liked': is_liked,
+#     }
+#     return render(request, 'public/view_comment.html', context)
 
 
 # def web_dev(request):
@@ -82,4 +126,3 @@ def internships(request):
 #         'name': 'Cinema Club'
 #     }
 #     return render(request, 'index.html', context)
-

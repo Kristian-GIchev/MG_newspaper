@@ -1,8 +1,8 @@
 {% extends 'public/base.html' %}
 
 {% block form %}
-	<h1 style="text-align: center;">Are you sure?</h1>
-	<form class="form" action="{% url 'delete_article' article.id%}" method="post">
+	<h1 style="text-align: center" >Are you sure?</h1>
+	<form class="form" action="{% url 'delete_comment' comment.id%}" method="post">
 		{% csrf_token %}
 		<button class="central button" type="submit">Delete</button>
 	</form>

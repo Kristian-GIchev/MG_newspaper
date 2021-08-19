@@ -16,7 +16,7 @@
 <nav>
 	<span class="logo"><a href="{% url 'home' %}">MG Newspaper</a></span>
 	<div class="dropdown">
-	    <button class="dropbtn">Articles</button>
+	    <button class="dropbtn" onclick="location.href = '{% url 'article_menu' %}'">Articles</button>
 		<div class="dropdown-content">
 			<a href={% url 'news' %}>News</a>
 			<a href={% url 'sports' %}>Sports</a>
@@ -27,15 +27,19 @@
 	</div>
 
 	<div class="dropdown">
-		<button class="dropbtn">Editor menu</button>
+		<button class="dropbtn" onclick="location.href = '{% url 'create_article' %}'"> Create Article</button>
+	</div>
+	<div class="dropdown">
+		<button class="dropbtn">View my content</button>
 		<div class="dropdown-content">
 			<a href={% url 'view_my_articles' %}>View My Articles</a>
-			<a href={% url 'create_article' %}>Create New Article</a>
+			<a href={% url 'view_my_comments' %}>View My Comments</a>
 	    </div>
 	</div>
+
 	<div class="login-nav">
 		{% if request.user.is_authenticated %}
-			<div class="signed-in-as">Signed in as <a href="{% url 'profile' %}">{{ request.user }}</a></div>
+			<div class="signed-in-as">Signed in as <a href="{% url 'profile' %}">{{ request.user.username }}</a></div>
 			<div class="sign-out"><a href="{% url 'sign-out' %}">Sign Out</a></div>
 		{% else %}
 			<div class="sign-in"><a href="{% url 'sign-in' %}">Sign in</a></div>

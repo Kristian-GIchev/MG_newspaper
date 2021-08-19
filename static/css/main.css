@@ -2,8 +2,9 @@
 body {
     font-family: 'Book Antiqua', sans-serif;
     font-weight: bold;
-    color: black;
-    background-image: url("/static/background/pattern.jpg");
+    color: white;
+    /*background-image: url("/static/background/pattern.jpg");*/
+    background-color: #1d1d1d;
 }
 
 
@@ -14,7 +15,7 @@ nav {
     height: 70px;
     margin: auto;
     padding: 0 20px 0 20px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.13);
     overflow: hidden
 }
 
@@ -23,8 +24,9 @@ nav > *{
 }
 
 span.logo{
-    color: #8343ff;
+    color: #ffffff;
     float: left;
+    border-radius: 10px;
     font-size: 42px;
     margin: 10px 30px 0 30px;
 }
@@ -135,7 +137,7 @@ h2.page-name{
 
 
 /*FORM*/
-form {
+.form {
     background-color: rgba(0, 0, 0, 0.28);
     border-radius: 45px;
     padding: 30px;
@@ -146,9 +148,64 @@ form {
     align-items: center;
 }
 
-form > p {
+.form > p {
     padding: 10px;
     font-size: 22px;
+}
+
+
+.like-form{
+    display: inline;
+    margin-left: 60px;
+}
+
+/*INLINE ARTICLE*/
+div.inline-article {
+    display: inline-block;
+    margin: 50px 0 0 8%;
+    background-color: rgba(0, 0, 0, 0.28);
+    border-radius: 20px;
+    overflow: auto;
+    height: 50%;
+    width: 38%;
+    padding: 15px;
+}
+
+.row {
+    text-align: center;
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.row img {
+    float: left;
+    display: inline-block;
+    padding: 10px;
+    height: 120px;
+    width: auto;
+}
+
+.row .article-title{
+    line-height: 140px;
+    font-size: 30px;
+    margin-right: 20px;
+    left:0;
+    right:0;
+}
+
+h2.description {
+    display: block;
+    margin: auto;
+}
+
+div.inline-article > h2 {
+    padding: 20px;
+}
+
+.row {
+    display: block;
+    width: 100%;
 }
 
 
@@ -164,7 +221,7 @@ div.article {
     padding: 15px;
 }
 
-div.article > img {
+div.article img {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -176,21 +233,24 @@ div.article > h1{
     margin: 30px 0 40px;
 }
 
-h2.description {
-    display: block;
-    margin: auto;
-}
 
 div.article > h2 {
     padding: 20px;
 }
 
 
+/*COMMENT SECTION*/
+.comment-section {
+    margin: 40px;
+}
+
+
 /*BUTTON, :HOVER*/
 .button{
-    color: #cdc6c6;
+    color: #dddddd;
     padding: 14px 20px;
-    border: black dot-dash;
+    background-color: #1d1d1d;
+    border: black;
     border-radius: 4px;
     cursor: pointer;
     font-family: 'Lato', sans-serif;
@@ -214,9 +274,20 @@ div.article > h2 {
 }
 
 .button:hover {
-    background-color: rgba(202,17,14,0);
+    background-color: #222222;
     color: black;
     font-weight: bold;
     text-decoration: underline;
 }
 
+/*HIDDEN LINK*/
+
+.hidden-link{
+    text-decoration: none;
+    color: inherit;
+}
+
+.hidden-link:visited {
+    text-decoration: none;
+    color: inherit;
+}

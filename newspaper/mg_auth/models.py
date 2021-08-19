@@ -45,3 +45,16 @@ class MgUser(AbstractBaseUser, PermissionsMixin):
     )
 
     objects = MgUserManager()
+
+    @property
+    def username(self):
+        profile_username = self.profile.username
+        first = self.profile.first_name
+        last = self.profile.last_name
+        if profile_username:
+            username = profile_username
+        elif not profile_username and first and last:
+            username = first + " " + last
+        else:
+            username = self.email
+        return username

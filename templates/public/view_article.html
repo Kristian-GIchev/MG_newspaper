@@ -1,0 +1,46 @@
+{% extends 'public/base.html' %}
+
+{% block article_display %}
+	<div class="article">
+		<img src="{{ article.image.url }}" alt="">
+		<h1>{{ article.title }}</h1>
+		<h2 class="description">{{ article.description }}</h2>
+		<h2 style="display: inline">{{ article.total_likes }} likes</h2>
+
+		<form class="like-form" action="{% url 'like_article' article.id %}" method="post">
+			{% csrf_token %}
+			{% if not is_liked %}
+				<button name='article_id' type="submit" value="{{ article.id }}" class="button like">Like</button>
+			{% else %}
+				<button name='article_id' type="submit" value="{{ article.id }}" class="button like">Unlike</button>
+			{% endif %}
+		</form>
+		<h2>Date: {{ article.created_at }}</h2>
+		<h2>Author: {{ article.user.username }}</h2>
+
+		{% if article.user == request.user or request.user.is_staff%}
+		<button class="button" onclick="location.href = '{% url 'edit_article' article.id %}';">Edit</button>
+		<button class="button" onclick="location.href = '{% url 'delete_article' article.id %}';">Delete</button>
+		{% endif %}
+		{% if article.comment_set.all %}
+			<div class="comment-section">
+				<h1>COMMENTS</h1>
+				<a href="{% url 'create_comment' article.id%}">Add Comment Here</a>
+				{% for comment in article.comment_set.all %}
+					<hr>
+					<h2 style="display: inline">{{ comment.user.username }} says: {{ comment.content }}</h2>
+					{% if comment.user == request.user or request.user.is_staff %}
+						<button class="button" onclick="location.href = '{% url 'edit_comment' comment.id %}';">Edit</button>
+						<button class="button" onclick="location.href = '{% url 'delete_comment' comment.id %}';">Delete</button>
+					{% endif %}
+				{% endfor %}
+			</div>
+		{% else %}
+			<div class="comment-section">
+				<h1>NO COMMENTS</h1>
+				<h2><a href="{% url 'create_comment' article.id %}">Add Comment Here</a></h2>
+			</div>
+		{% endif %}
+	</div>
+
+{% endblock %}
