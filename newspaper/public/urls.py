@@ -13,6 +13,8 @@ urlpatterns = [
     path('projects/', projects, name='projects'),
     path('internships/', internships, name='internships'),
     path('view-article/<int:pk>', view_article, name='view_article'),
+    # path('view-comment/<int:pk>', view_comment, name='view_comment'),
+
 
     # path('web-dev/', web_dev, name='web_dev'),
     # path('literature/', literature, name='literature'),

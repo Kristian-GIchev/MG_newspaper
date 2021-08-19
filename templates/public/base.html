@@ -27,12 +27,19 @@
 	</div>
 
 	<div class="dropdown">
-		<button class="dropbtn">Editor menu</button>
+		<button class="dropbtn">Create content</button>
 		<div class="dropdown-content">
-			<a href={% url 'view_my_articles' %}>View My Articles</a>
 			<a href={% url 'create_article' %}>Create New Article</a>
 	    </div>
 	</div>
+	<div class="dropdown">
+		<button class="dropbtn">View my content</button>
+		<div class="dropdown-content">
+			<a href={% url 'view_my_articles' %}>View My Articles</a>
+			<a href={% url 'view_my_comments' %}>View My Comments</a>
+	    </div>
+	</div>
+
 	<div class="login-nav">
 		{% if request.user.is_authenticated %}
 			<div class="signed-in-as">Signed in as <a href="{% url 'profile' %}">{{ request.user }}</a></div>

@@ -1,83 +1,88 @@
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 
-
+from newspaper.article_management.models import Article
+from newspaper.comment_management.forms import CreateCommentForm, EditCommentForm, DeleteCommentForm
+from newspaper.comment_management.models import Comment
+from newspaper.settings import LOGIN_URL
 
 
 @login_required(login_url=LOGIN_URL)
-def view_my_articles(request):
+def view_my_comments(request):
     user = request.user
-    articles = Article.objects.filter(user=user)
+    comments = Comment.objects.filter(user=user)
     context = {
-        'articles': articles,
-        'name': 'View My Articles',
+        'comments': comments,
+        'name': 'View My Comments',
     }
-    return render(request, 'article_management/view_my_articles.html', context)
+    return render(request, 'comment_management/view_my_comments.html', context)
 
 
 @login_required(login_url=LOGIN_URL)
-def create_article(request):
+def create_comment(request, article_pk):
+    commented_article = Article.objects.get(pk=article_pk)
     if request.method == "POST":
-        form = CreateArticleForm(request.POST, request.FILES)
+        form = CreateCommentForm(request.POST, request.FILES)
         if form.is_valid():
-            article = Article.objects.create(title=form.cleaned_data.get('title'),
-                                             description=form.cleaned_data.get('description'),
-                                             image=form.cleaned_data.get('image'),
-                                             category=form.cleaned_data.get('category'),
+            comment = Comment.objects.create(article=commented_article,
                                              user=request.user,
+                                             content=form.cleaned_data.get('content')
                                              )
-            article.save()
+            comment.save()
             return redirect('home')
     else:
-        form = CreateArticleForm()
+        form = CreateCommentForm()
     context = {
         'form': form,
-        'name': 'Create New Article',
+        'name': 'Create New Comment',
     }
-    return render(request, 'article_management/create_article.html', context)
+    return render(request, 'comment_management/create_comment.html', context)
 
 
 @login_required(login_url=LOGIN_URL)
-def edit_article(request, pk):
-    article = Article.objects.get(pk=pk)
+def edit_comment(request, pk):
+    comment = Comment.objects.get(pk=pk)
     if request.method == 'POST':
-        form = EditArticleForm(request.POST, request.FILES, instance=article)
+        form = EditCommentForm(request.POST, request.FILES, instance=comment)
         if form.is_valid():
             form.save()
             return redirect('home')
     else:
-        form = EditArticleForm(instance=article)
+        form = EditCommentForm(instance=comment)
     context = {
         'form': form,
-        'article': article,
-        'name': 'Edit Article',
+        'comment': comment,
+        'name': 'Edit Comment',
     }
-    return render(request, 'article_management/edit_article.html', context)
+    return render(request, 'comment_management/edit_comment.html', context)
 
 
 @login_required(login_url=LOGIN_URL)
-def delete_article(request, pk):
-    article = Article.objects.get(pk=pk)
+def delete_comment(request, pk):
+    comment = Comment.objects.get(pk=pk)
     if request.method == 'POST':
-        form = DeleteArticleForm(request.POST, request.FILES, instance=article)
-        article.delete()
+        form = DeleteCommentForm(request.POST, request.FILES, instance=comment)
+        comment.delete()
         return redirect('home')
     else:
-        form = DeleteArticleForm(instance=article)
+        form = DeleteCommentForm(instance=comment)
     context = {
         'form': form,
-        'name': 'Edit Article',
-        'article': article,
+        'name': 'Delete Comment',
+        'comment': comment,
     }
-    return render(request, 'article_management/delete_article.html', context)
+    return render(request, 'comment_management/delete_comment.html', context)
 
 
 @login_required(login_url=LOGIN_URL)
-def like_article(request, pk):
+def like_comment(request, pk):
 
-    article = get_object_or_404(Article, id=request.POST.get('article_id'))
-    if article.likes.filter(id=request.user.id).exists():
-        article.likes.remove(request.user)
+    comment = get_object_or_404(Comment, id=request.POST.get('article_id'))
+    if comment.likes.filter(id=request.user.id).exists():
+        comment.likes.remove(request.user)
     else:
-        article.likes.add(request.user)
+        comment.likes.add(request.user)
 
-    return HttpResponseRedirect(reverse('view_article', args=[str(pk)]))
+    return HttpResponseRedirect(reverse('view_article', args=[comment.article.pk]))

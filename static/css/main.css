@@ -157,6 +157,56 @@ h2.page-name{
     margin-left: 60px;
 }
 
+/*INLINE ARTICLE*/
+div.inline-article {
+    display: inline-block;
+    margin: 50px 0 0 8%;
+    background-color: rgba(0, 0, 0, 0.28);
+    border-radius: 20px;
+    overflow: auto;
+    height: 50%;
+    width: 38%;
+    padding: 15px;
+}
+
+.row {
+    text-align: center;
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.row img {
+    float: left;
+    display: inline-block;
+    padding: 10px;
+    height: 120px;
+    width: auto;
+}
+
+.row .article-title{
+    line-height: 140px;
+    font-size: 30px;
+    margin-right: 20px;
+    left:0;
+    right:0;
+}
+
+h2.description {
+    display: block;
+    margin: auto;
+}
+
+div.inline-article > h2 {
+    padding: 20px;
+}
+
+.row {
+    display: block;
+    width: 100%;
+}
+
+
 /*ARTICLE*/
 div.article {
     display: block;
@@ -181,10 +231,6 @@ div.article > h1{
     margin: 30px 0 40px;
 }
 
-h2.description {
-    display: block;
-    margin: auto;
-}
 
 div.article > h2 {
     padding: 20px;

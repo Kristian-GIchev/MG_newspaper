@@ -31,7 +31,7 @@ def create_article(request):
                                              user=request.user,
                                              )
             article.save()
-            return redirect('home')
+            return redirect('view_my_articles')
     else:
         form = CreateArticleForm()
     context = {
@@ -48,7 +48,7 @@ def edit_article(request, pk):
         form = EditArticleForm(request.POST, request.FILES, instance=article)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('view_my_articles')
     else:
         form = EditArticleForm(instance=article)
     context = {
@@ -65,12 +65,12 @@ def delete_article(request, pk):
     if request.method == 'POST':
         form = DeleteArticleForm(request.POST, request.FILES, instance=article)
         article.delete()
-        return redirect('home')
+        return redirect('view_my_articles')
     else:
         form = DeleteArticleForm(instance=article)
     context = {
         'form': form,
-        'name': 'Edit Article',
+        'name': 'Delete Article',
         'article': article,
     }
     return render(request, 'article_management/delete_article.html', context)

@@ -1,4 +1,6 @@
 from django.shortcuts import render
+
+from newspaper.comment_management.models import Comment
 from newspaper.public.models import Article
 
 
@@ -75,7 +77,20 @@ def view_article(request, pk):
         'article': article,
         'is_liked': is_liked,
     }
-    return render(request, 'public/single_article.html', context)
+    return render(request, 'public/view_article.html', context)
+
+
+# def view_comment(request, pk):
+#     comment = Comment.objects.get(pk=pk)
+#     is_liked = False
+#     if comment.likes.filter(id=request.user.id).exists():
+#         is_liked = True
+#     context = {
+#         'name': 'View Comment',
+#         'comment': comment,
+#         'is_liked': is_liked,
+#     }
+#     return render(request, 'public/view_comment.html', context)
 
 
 
