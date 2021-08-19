@@ -1,9 +1,9 @@
 {% extends 'public/base.html' %}
 
 {% block form %}
-	<form class="form" action="{% url 'delete_article' article.id%}" method="post" enctype="multipart/form-data">
+	<h1 style="text-align: center" >Are you sure?</h1>
+	<form class="form" action="{% url 'delete_comment' comment.id%}" method="post">
 		{% csrf_token %}
-		{{ form.as_p }}
-		<button class="button red" type="submit">Delete</button>
+		<button class="central button" type="submit">Delete</button>
 	</form>
 {% endblock %}

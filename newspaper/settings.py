@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'cloudinary',
 
     'newspaper',
+    'newspaper.core',
     'newspaper.mg_auth',
     'newspaper.profiles',
     'newspaper.article_management',
@@ -145,6 +146,7 @@ STATICFILES_DIRS = (
     BASE_DIR / 'static',
     BASE_DIR / 'static/css',
     BASE_DIR / 'static/background',
+    BASE_DIR / 'static/icons',
 
 )
 

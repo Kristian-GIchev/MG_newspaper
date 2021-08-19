@@ -6,6 +6,7 @@ from django.urls import reverse
 from newspaper.article_management.models import Article
 from newspaper.comment_management.forms import CreateCommentForm, EditCommentForm, DeleteCommentForm
 from newspaper.comment_management.models import Comment
+from newspaper.core.functions import make_readonly
 from newspaper.settings import LOGIN_URL
 
 
@@ -31,11 +32,12 @@ def create_comment(request, article_pk):
                                              content=form.cleaned_data.get('content')
                                              )
             comment.save()
-            return redirect('home')
+            return redirect('view_article', comment.article.id)
     else:
         form = CreateCommentForm()
     context = {
         'form': form,
+        'article_pk': article_pk,
         'name': 'Create New Comment',
     }
     return render(request, 'comment_management/create_comment.html', context)
@@ -48,7 +50,7 @@ def edit_comment(request, pk):
         form = EditCommentForm(request.POST, request.FILES, instance=comment)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('view_article', comment.article.id)
     else:
         form = EditCommentForm(instance=comment)
     context = {
@@ -64,8 +66,9 @@ def delete_comment(request, pk):
     comment = Comment.objects.get(pk=pk)
     if request.method == 'POST':
         form = DeleteCommentForm(request.POST, request.FILES, instance=comment)
+        art_id = comment.article.id
         comment.delete()
-        return redirect('home')
+        return redirect('view_article', art_id)
     else:
         form = DeleteCommentForm(instance=comment)
     context = {

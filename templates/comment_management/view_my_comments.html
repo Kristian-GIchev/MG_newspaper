@@ -1,16 +1,15 @@
 {% extends 'public/base.html' %}
 
 {% block article_display %}
-	{% for article in articles %}
+	{% for comment in comments %}
 		<div class="article">
 			<br>
-			<img src="{{ article.image.url }}" alt="">
-			<h1><a href="{% url 'view_article' article.id %}">{{ article.title }}</a></h1>
-			<h2 class="description">{{ article.description }}</h2>
-			<h2>Category: {{ article.category.capitalize }}</h2>
-			<h2>Date: {{ article.created_at }}</h2>
-			<button class="button blue" onclick="location.href = '{% url 'edit_article' article.id %}';">Edit</button>
-			<button class="button red" onclick="location.href = '{% url 'delete_article' article.id %}';">Delete</button>
+			<h1>Commented on article:  <a href="{% url 'view_article' comment.article.id %}">{{ comment.article.title }}</a></h1>
+			<h1>Comment: {{ comment.content }}</h1>
+			<h2>Created at: {{ comment.created }}</h2>
+			<h2>Updated at: {{ comment.updated }}</h2>
+			<button class="button" onclick="location.href = '{% url 'edit_comment' comment.id %}';">Edit</button>
+			<button class="button" onclick="location.href = '{% url 'delete_comment' comment.id %}';">Delete</button>
 		</div>
 	{% endfor %}
 {% endblock %}

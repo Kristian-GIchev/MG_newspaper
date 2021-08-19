@@ -2,8 +2,9 @@
 body {
     font-family: 'Book Antiqua', sans-serif;
     font-weight: bold;
-    color: black;
-    background-image: url("/static/background/pattern.jpg");
+    color: white;
+    /*background-image: url("/static/background/pattern.jpg");*/
+    background-color: #1d1d1d;
 }
 
 
@@ -14,7 +15,7 @@ nav {
     height: 70px;
     margin: auto;
     padding: 0 20px 0 20px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.13);
     overflow: hidden
 }
 
@@ -23,8 +24,9 @@ nav > *{
 }
 
 span.logo{
-    color: #8343ff;
+    color: #ffffff;
     float: left;
+    border-radius: 10px;
     font-size: 42px;
     margin: 10px 30px 0 30px;
 }
@@ -245,10 +247,10 @@ div.article > h2 {
 
 /*BUTTON, :HOVER*/
 .button{
-    color: #000000;
-    background-color: rgb(152, 255, 170);
+    color: #dddddd;
     padding: 14px 20px;
-    border: black dot-dash;
+    background-color: #1d1d1d;
+    border: black;
     border-radius: 4px;
     cursor: pointer;
     font-family: 'Lato', sans-serif;
@@ -272,7 +274,7 @@ div.article > h2 {
 }
 
 .button:hover {
-    background-color: rgba(202,17,14,0);
+    background-color: #222222;
     color: black;
     font-weight: bold;
     text-decoration: underline;

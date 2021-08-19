@@ -1,13 +1,11 @@
 from django.shortcuts import render
-
-from newspaper.comment_management.models import Comment
 from newspaper.public.models import Article
 
 
 def home(request):
     articles = Article.objects.order_by('-created_at')
     context = {
-        'name': 'Home',
+        'name': 'Newest Articles',
         'articles': articles
     }
     return render(request, 'public/index.html', context)
@@ -80,6 +78,22 @@ def view_article(request, pk):
     return render(request, 'public/view_article.html', context)
 
 
+def article_menu(request):
+    new_count = len(Article.objects.filter(category='news'))
+    sport_count = len(Article.objects.filter(category='sports'))
+    activity_count = len(Article.objects.filter(category='activities'))
+    internship_count = len(Article.objects.filter(category='internships'))
+    project_count = len(Article.objects.filter(category='projects'))
+    context = {
+        'new_count': new_count,
+        'sport_count': sport_count,
+        'activity_count': activity_count,
+        'internship_count': internship_count,
+        'project_count': project_count,
+    }
+    return render(request, 'public/article_menu', context)
+
+
 # def view_comment(request, pk):
 #     comment = Comment.objects.get(pk=pk)
 #     is_liked = False
@@ -91,7 +105,6 @@ def view_article(request, pk):
 #         'is_liked': is_liked,
 #     }
 #     return render(request, 'public/view_comment.html', context)
-
 
 
 # def web_dev(request):
@@ -113,4 +126,3 @@ def view_article(request, pk):
 #         'name': 'Cinema Club'
 #     }
 #     return render(request, 'index.html', context)
-

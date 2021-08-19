@@ -38,7 +38,10 @@ class Article(models.Model):
     def short_description(self):
         max_words = 30
         split = self.description.split(' ', max_words)
-        split.pop(max_words)
+        try:
+            split.pop(max_words)
+        except IndexError:
+            pass
         short_description = ""
         for word in split:
             short_description += word + " "
