@@ -36,7 +36,7 @@ class Article(models.Model):
 
     @property
     def short_description(self):
-        max_words = 10
+        max_words = 30
         split = self.description.split(' ', max_words)
         split.pop(max_words)
         short_description = ""

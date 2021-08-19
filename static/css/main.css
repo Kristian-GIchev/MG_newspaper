@@ -169,7 +169,7 @@ div.article {
     padding: 15px;
 }
 
-div.article > img {
+div.article img {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -188,6 +188,12 @@ h2.description {
 
 div.article > h2 {
     padding: 20px;
+}
+
+
+/*COMMENT SECTION*/
+.comment-section {
+    margin: 40px;
 }
 
 
@@ -226,3 +232,14 @@ div.article > h2 {
     text-decoration: underline;
 }
 
+/*HIDDEN LINK*/
+
+.hidden-link{
+    text-decoration: none;
+    color: inherit;
+}
+
+.hidden-link:visited {
+    text-decoration: none;
+    color: inherit;
+}

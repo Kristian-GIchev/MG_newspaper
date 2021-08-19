@@ -15,6 +15,12 @@ class Profile(models.Model):
         blank=True
     )
 
+    username = models.CharField(
+        max_length=40,
+        unique=True,
+        blank=True,
+    )
+
     profile_pic = CloudinaryField("Profile Picture", blank=True, null=True)
 
     age = models.IntegerField(

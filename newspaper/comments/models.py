@@ -12,7 +12,7 @@ class Comment(models.Model):
         max_length=500,
     )
     user = models.ForeignKey(UserModel, on_delete=models.CASCADE)
-    article = models.ForeignKey(Article, on_delete=models.CASCADE)
-    likes = models.ManyToManyField(UserModel, related_name='comment_likes')
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, blank=True, null=True)
+    likes = models.ManyToManyField(UserModel, related_name='liked_comment')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

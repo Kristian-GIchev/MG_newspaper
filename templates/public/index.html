@@ -4,9 +4,17 @@
 	{% for article in articles %}
 		<div class="article">
 			<br>
-			<img src="{{ article.image.url }}" alt="">
-			<h1><a href="{% url 'view_article' article.id %}">{{ article.title }}</a></h1>
-			<h2 class="description">{{ article.short_description }}</h2>
+			<a class="" href="{% url 'view_article' article.id %}"><img src="{{ article.image.url }}" alt=""></a>
+			<h1><a class="hidden-link" href="{% url 'view_article' article.id %}">{{ article.title }}</a></h1>
+			<h2 class="description">{{ article.short_description }}   <a class="" href="{% url 'view_article' article.id %}"> SEE MORE</a></h2>
+			<h2>
+				<span style="display: inline; float: left">
+				{{ article.total_likes }} Likes
+				</span>
+				<span style="display: inline; float: left; margin-left: 50px">
+				{{ article.total_comments}} Comments
+				</span>
+			</h2>
 			<h2>Date: {{ article.created_at }}</h2>
 		</div>
 	{% endfor %}

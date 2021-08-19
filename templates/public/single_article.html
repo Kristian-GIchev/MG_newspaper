@@ -15,13 +15,27 @@
 				<button name='article_id' type="submit" value="{{ article.id }}" class="button">Unlike</button>
 			{% endif %}
 		</form>
-
-		<h2>Category: {{ article.category.capitalize }}</h2>
 		<h2>Date: {{ article.created_at }}</h2>
+		<h2>Author: {{ article.user.username }}</h2>
 
 
 		<button class="button" onclick="location.href = '{% url 'edit_article' article.id %}';">Edit</button>
 		<button class="button" onclick="location.href = '{% url 'delete_article' article.id %}';">Delete</button>
 
+		{% if article.comment_set.all %}
+			<div class="comment-section">
+				<h1>COMMENTS</h1>
+				<a href="{% url comment-create %}">Add Comment Here</a>
+				{% for comment in article.comment_set.all %}
+					<hr>
+					<h2>{{ comment.user.username }} says: {{ comment.content }}</h2>
+				{% endfor %}
+			</div>
+		{% else %}
+			<div class="comment-section">
+				<h1>NO COMMENTS</h1>
+			</div>
+		{% endif %}
 	</div>
+
 {% endblock %}
