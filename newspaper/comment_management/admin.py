@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from newspaper.comments.models import Comment
+from newspaper.comment_management.models import Comment
 
 
 @admin.register(Comment)

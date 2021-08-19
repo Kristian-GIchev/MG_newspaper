@@ -1,0 +1,9 @@
+{% extends 'public/base.html' %}
+
+{% block form %}
+	<form class="form" action="{% url 'create_article'%}" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button class="button blue" type="submit">Create</button>
+	</form>
+{% endblock %}

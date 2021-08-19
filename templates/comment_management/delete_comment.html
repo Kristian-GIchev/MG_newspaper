@@ -1,0 +1,9 @@
+{% extends 'public/base.html' %}
+
+{% block form %}
+	<form class="form" action="{% url 'delete_article' article.id%}" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button class="button red" type="submit">Delete</button>
+	</form>
+{% endblock %}
