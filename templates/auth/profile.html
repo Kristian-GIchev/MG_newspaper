@@ -3,6 +3,7 @@
 {% block form %}
 	<form class="form" action="{% url 'profile' %}" method="post" enctype="multipart/form-data">
 		{% csrf_token %}
+		<img src="{{ request.user.profile.profile_pic.url }}" style="display: block; margin: auto; height: 200px;">
 		{{ form.as_p }}
 		<button class="central button blue" type="submit">Save</button>
 	</form>
