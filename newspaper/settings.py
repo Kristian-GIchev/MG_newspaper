@@ -171,3 +171,4 @@ cloudinary.config(
   api_secret="8rcvtw8-HG_y4qmiOO5tYoy7vQE",
 )
 
+USE_TZ = True
