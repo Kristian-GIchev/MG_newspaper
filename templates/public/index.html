@@ -1,6 +1,9 @@
 {% extends 'public/base.html' %}
 
 {% block article_display %}
+	{% if not articles %}
+		<h1 style="text-align: center">Nothing here. <a href="{% url 'create_article' %}">Create your own!</a></h1>
+	{% endif %}
 	{% for article in articles %}
 		<div class="inline-article">
 			<div class="row">

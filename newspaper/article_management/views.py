@@ -4,7 +4,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 
 from newspaper.article_management.forms import CreateArticleForm, EditArticleForm, DeleteArticleForm
-from newspaper.core.functions import make_readonly
 from newspaper.public.models import Article
 from newspaper.settings import LOGIN_URL
 

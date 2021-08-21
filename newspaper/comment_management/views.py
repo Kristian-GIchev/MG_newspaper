@@ -6,7 +6,6 @@ from django.urls import reverse
 from newspaper.article_management.models import Article
 from newspaper.comment_management.forms import CreateCommentForm, EditCommentForm, DeleteCommentForm
 from newspaper.comment_management.models import Comment
-from newspaper.core.functions import make_readonly
 from newspaper.settings import LOGIN_URL
 
 
